@@ -1,5 +1,5 @@
     import { json, Router } from "express";
-    import crypto from 'crypto-js'
+  
 import User from "../models/User.js";
 import dotenv from 'dotenv'
 dotenv.config()
@@ -11,12 +11,12 @@ route.post('/user', async (req,res)=>{
  
     try {
         
-            
+            // encripting password =>crypto.AES.encrypt(req.body.password,process.env.PASS_SET)
                  
         var User1=new User({
             name:req.body.name,
              email:req.body.email,
-             password:crypto.AES.encrypt(req.body.password,process.env.PASS_SET),
+             password:req.body.password,
         phoneno:req.body.phoneno,
            role:req.body.role    
         })
@@ -27,10 +27,24 @@ route.post('/user', async (req,res)=>{
       }
     })  
 //FindbyId
-route.get('/user/:id',(req,res)=>{
-
-  User.findById(req.params.id).then((user)=>res.status(200).json(user)).catch(err=>console.log(err))
-
+route.post('/Login',(req,res)=>{
+   console.log(req.body.email)
+     const{email,password}=req.body
+  User.findOne({email:email},(err, user)=>
+  
+  
+  {if(user){
+     if(password===user.password){
+      res.send(200, user)
+     }else{
+        res.send(420,{message:"Not valid pass"})
+     }
+   
+  
+  }
+else{
+  res.send({message:"Not Registered User"})
+}})
 
 
 

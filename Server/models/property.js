@@ -5,7 +5,7 @@ const Property = new Schema({
   State: { type: String, required: true },
   city: { type: String, required: true },
 
-  Propertyname: { type: String, required: true, unique: true },
+  Propertyname: { type: String, required: true},
   Status: { type: String, required: true },
   Propertydesc: { type: String, required: true },
   propertytype: { type: String, required: true },
