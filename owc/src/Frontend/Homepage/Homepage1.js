@@ -23,9 +23,9 @@ export default function Homepage1() {
 
 <div className="row gy-5">
     <div className="col-6">
-    <NavLink className='nav-link active'to=''> <Link to={"Display"} style={{"color":"black"}}> <div style={{"textAlign":"right","fontfa":"san-serif"}}className="p-3 border bg-light">Dedicated desk
+    <NavLink className='nav-link active'to=''> <Link to={"Desk"} style={{"color":"black"}}> <div style={{"textAlign":"right","fontfa":"san-serif"}}className="p-3 border bg-light">Dedicated desk
       <i>&nbsp; 
-        Private move-in ready offices</i></div></Link></NavLink>
+        Desk and collabrative spaces</i></div></Link></NavLink>
     </div>
 </div>
 
@@ -33,9 +33,9 @@ export default function Homepage1() {
 
 <div className="row gy-5">
     <div className="col-6">
-    <NavLink className='nav-link active'to=''> <Link to={"Display"} style={{"color":"black"}}> <div style={{"textAlign":"right","fontfa":"san-serif"}}className="p-3 border bg-light">Office space
+    <NavLink className='nav-link active'to=''> <Link to={"Restaurant"} style={{"color":"black"}}> <div style={{"textAlign":"right","fontfa":"san-serif"}}className="p-3 border bg-light">Restaurant space
       <i>&nbsp; 
-        Private move-in ready offices</i></div></Link></NavLink>
+       Cafes & Restaurant Setups </i></div></Link></NavLink>
     </div>
 </div>
 
@@ -44,9 +44,9 @@ export default function Homepage1() {
 
 <div className="row gy-5">
     <div className="col-6">
-    <NavLink className='nav-link active'to=''> <Link to={"Display"} style={{"color":"black"}}> <div style={{"textAlign":"right","fontfa":"san-serif"}}className="p-3 border bg-light">Office space
+    <NavLink className='nav-link active'to=''> <Link to={"Education"} style={{"color":"black"}}> <div style={{"textAlign":"right","fontfa":"san-serif"}}className="p-3 border bg-light">Education
       <i>&nbsp; 
-        Private move-in ready offices</i></div></Link></NavLink>
+      Classrooms  Setups</i></div></Link></NavLink>
     </div>
 </div>
 
