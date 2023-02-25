@@ -8,13 +8,20 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.4",
+    "bootstrap": "^5.2.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-icons": "^4.7.1",
+=======
+    "react-google-charts": "^4.0.0",
+>>>>>>> 6776c711a74ce0fe65b4c9210db03391905f6a4c
     "react-router": "^6.7.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.3.3"
   },
   "scripts": {
     "start": "react-scripts start",

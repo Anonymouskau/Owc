@@ -5,6 +5,7 @@ import Property from "../models/property.js";
 const route = Router();
 
 // Add many properties
+<<<<<<< HEAD
 route.post("/props",async(req,res)=>{
   const Property1 = new Property({
     country: req.body.country,
@@ -25,6 +26,8 @@ route.post("/props",async(req,res)=>{
 
 
 })
+=======
+>>>>>>> 6776c711a74ce0fe65b4c9210db03391905f6a4c
 
 // Add property
 
@@ -62,19 +65,59 @@ route.get("/property", (req, res) => {
 route.post("/propertyname", (req, res) => {
   Property.find({country:req.params.country}).then((properties)=>res.status(200).json(properties)).catch(err=>res.status(500).json(err));
 });
-//find 
+//find by propertytype 
 
-route.get("/property", (req, res) => {
+route.get("/officespaces", (req, res) => {
   try {
     property
-      .find({propertytype})
+      .find({propertytype:"Officespace"})
       .then((props) => res.send(res.json(props)))
       .catch((err) => console.log(err));
   } catch (error) {
     res.status(500);
   }
 });
+ 
 
+//find by propertytype  Desk
+
+route.get("/desk", (req, res) => {
+  try {
+    property
+      .find({propertytype:"Dedicated Desk"})
+      .then((props) => res.send(res.json(props)))
+      .catch((err) => console.log(err));
+  } catch (error) {
+    res.status(500);
+  }
+});
+ 
+//find property by education
+
+route.get("/education", (req, res) => {
+  try {
+    property
+      .find({propertytype:"Educational"})
+      .then((props) => res.send(res.json(props)))
+      .catch((err) => console.log(err));
+  } catch (error) {
+    res.status(500);
+  }
+});
+ 
+ 
+//find property by Restaurant
+
+route.get("/restaurant", (req, res) => {
+  try {
+    property
+      .find({propertytype:"Restaurant"})
+      .then((props) => res.send(res.json(props)))
+      .catch((err) => console.log(err));
+  } catch (error) {
+    res.status(500);
+  }
+});
 
 //remove by id
 route.delete("/property", (req, res) => {

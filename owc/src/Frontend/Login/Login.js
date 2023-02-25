@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import userStore from '../../Zustand/Zustandstore'
+import { data } from '../Dashboard/Admins/Googlecharts'
+
 export default function Login() {
-  
+ 
   const history=useHistory()
   const [user,SetUser]=useState({
    email:"",
@@ -72,12 +75,14 @@ export default function Login() {
           </div>
 
           <div className="text-center text-lg-start mt-4 pt-2">
-            <button  onClick={()=>{
+            <button  onClick={async()=>{
                    
                   var value
-                 axios.post("http://localhost:5000/User/Login",user).then((res)=>{
+                   await  axios.post("http://localhost:5000/User/Login",user).then((res)=>{
+                                      
                       value=res.data
                       const{email,...values}=value
+                      localStorage.setItem("email",email)
                       if(email===user.email){
                         history.push("/home")
                       }
