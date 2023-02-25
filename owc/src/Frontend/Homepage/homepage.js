@@ -9,6 +9,9 @@ import Aboutus from '../Aboutus/Aboutsus';
 import Footer from '../footer';
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import Homepage1 from './Homepage1';
+import Admin from '../Dashboard/Admins/Admin'
+import Report from '../Dashboard/Admins/Report'
+import Props from '../Dashboard/Admins/admprop'
 function Homepage() {
   return (
     <>
@@ -24,6 +27,9 @@ function Homepage() {
      <Route path='/education'component={Education}/> 
      <Route path='/restaurant'component={Restaurant}/> 
      <Route path='/desk'component={Desk}/> 
+     <Route path='/admin' component={Admin}/>
+     <Route path='/report' component={Report}/>
+     <Route path='/props' component={Props}/>
     
      </Switch>
     

@@ -1,0 +1,32 @@
+.row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+    .sidebar {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 100;
+        padding: 70px 0 0 10px;
+        border-right: 1px solid #d3d3d3;
+      }
+      
+      .left-sidebar {
+        position: sticky;
+        top:0;
+        height: calc(100vh - 70px)
+      }
+      
+      .sidebar-nav li .nav-link {
+        color: #333;
+        font-weight: 500;
+      }

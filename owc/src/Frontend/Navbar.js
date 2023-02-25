@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState ,useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
 import '../App.css'
+import Dropdown from 'react-bootstrap/Dropdown';
+import userStore from "../Zustand/Zustandstore";
+
 export default function Navbar() {
+  
+  
+  
+  const user=localStorage.getItem("email")
+  const dropdown=()=>{
+  return(
+    <Dropdown style={{"align":"end"}}>
+      <Dropdown.Toggle variant="info" id="dropdown-basic-button">
+         👤 {user }
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Link to={'Admin'}><Dropdown.Item  href="#/action-1">Dashboard</Dropdown.Item></Link>
+        
+        <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+
+  )
+  }
+  useEffect(()=>{
+    dropdown()
+  },[])
   const history = useHistory();
   return (
     <nav
@@ -101,37 +127,7 @@ export default function Navbar() {
   <Link className="nav-link nav-link-ltr" href="#">Contact</Link>
   <Link className="nav-link nav-link-ltr" href="#">Blog</Link> */}
 </div>
-
-<nav   className="navbar navbar-expand-lg navbar-light bg-light">
-  <div className="container-fluid">
-    {/* <ul className="navbar-nav">
-    
-      <li className="nav-item dropdown"> */}
-      
-        <Link className="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
-          role="button" data-mdb-toggle="dropdown" aria-expanded="false"> 
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" className="rounded-circle"
-            height="22" alt="Avatar" loading="lazy" />
-         </Link>
-
-          
-        {/* <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <Link className="dropdown-item" href="#">My profile</Link>
-          </li>
-          <li>
-            <Link className="dropdown-item" href="#">Settings</Link>
-          </li>
-          <li>
-            <Link className="dropdown-item" href="#">Logout</Link>
-          </li>
-        </ul> */}
-      {/* </li>
-    </ul> */}
-  </div>
-</nav>
-
-
+{dropdown()}
         </nav>  
 
     // </nav>
