@@ -65,7 +65,7 @@ export default function Navbar() {
             <li className="nav-item">
               <label
                 onClick={() => {
-                  history.push("/About us");
+                  history.push("/Aboutus");
                 }}
                 className="nav-link nav-link-ltr"
                 aria-current="page"
@@ -77,7 +77,7 @@ export default function Navbar() {
             <li className="nav-item">
               <label
                 onClick={() => {
-                  history.push("/Contact Us");
+                  history.push("/Contactus");
                 }}
                 className="nav-link nav-link-ltr"
                 aria-current="page"

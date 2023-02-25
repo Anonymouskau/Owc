@@ -1,4 +1,4 @@
-    import { json, Router } from "express";
+import { json, Router } from "express";
   
 import User from "../models/User.js";
 import dotenv from 'dotenv'
@@ -7,8 +7,6 @@ const route=Router()
 
 // Create
 route.post('/user', async (req,res)=>{
-
- 
     try {
         
             // encripting password =>crypto.AES.encrypt(req.body.password,process.env.PASS_SET)
@@ -26,6 +24,7 @@ route.post('/user', async (req,res)=>{
         
       }
     })  
+    
 //FindbyId
 route.post('/Login',(req,res)=>{
    console.log(req.body.email)

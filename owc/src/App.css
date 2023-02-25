@@ -227,3 +227,73 @@ body {
     font-weight:600
   }
 }
+
+/* ========================================================== */
+.titlebox{
+  background-color: rgb(255, 230, 234);
+  
+}
+
+.getintouch{
+  border: 2px solid rgb(158, 153, 153);
+  width: 70vw;
+  box-shadow: 3px 5px 2px 5px rgb(207, 207, 233);
+  margin: -10vh auto;
+  margin-bottom: 10vh;
+  background-color: white;
+}
+
+/* ================================================= */
+
+.firstaboutbox{
+  /* background-color: rgb(171, 241, 236); */
+  background-image: url(https://websitedemos.net/construction-company-02/wp-content/uploads/sites/977/2021/11/about-us-min.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: wheat;
+  opacity: 0.4;
+  height: 40vh;
+
+}
+.elementor-background-overlay {
+  background-color: var(--e-global-color-astglobalcolor2 );
+  opacity: 0.81;
+  transition: firstaboutbox 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.aboutdivbox{
+  margin:3vw ;
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+@media screen and (max-width: 625px) {
+  .aboutdivbox{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.iconbox h2{
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #ffc03d;;
+}
+
+.thirdaboutbox{
+  background-color:white;
+}
+.thirdaboutbox img{
+  border-radius: 50px;
+}
+@media screen and (max-width: 625px) {
+  .thirdaboutbox{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mebemname{
+  background-color:#eaf7fc;
+}

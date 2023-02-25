@@ -4,6 +4,28 @@ import Property from "../models/property.js";
 
 const route = Router();
 
+// Add many properties
+route.post("/props",async(req,res)=>{
+  const Property1 = new Property({
+    country: req.body.country,
+    State: req.body.State,
+
+    city: req.body.city,
+
+    Propertyname: req.body.Propertyname,
+    Status: req.body.Status,
+    Propertydesc: req.body.Propertydesc,
+    propertytype: req.body.propertytype,
+    subtype: req.body.subtype,
+    prize: req.body.prize,
+
+    image: req.body.image,
+  });
+  await Property1.insertmany().then(()=>res.status(200).json("Saved")).catch(err=>res.status(500).json(err))   
+
+
+})
+
 // Add property
 
 route.post("/property", async (req, res) => {
