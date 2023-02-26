@@ -79,8 +79,8 @@ export default function Login() {
                                       
                       value=res.data
                       const{email,...values}=value
-                      localStorage.setItem("email",email)
-                      localStorage.setItem("role",values.role);
+                      sessionStorage.setItem("email",email)
+                      sessionStorage.setItem("role",values.role);
                       if(email===user.email){
                         history.push("/home")
                       }

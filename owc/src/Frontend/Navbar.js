@@ -8,8 +8,8 @@ export default function Navbar() {
   
   
   const[state,setuser]=useState("")
-  const user=localStorage.getItem("email")
-  const role=localStorage.getItem("role")
+  const user=sessionStorage.getItem("email")
+  const role=sessionStorage.getItem("role")
   
   const [dropd,setdropd]=useState()
 
@@ -114,7 +114,7 @@ export default function Navbar() {
 </div>
 
 
-    <Dropdown style={{"align":"end"}}>
+    <Dropdown  class='nav justify-content-end'style={{"align":"end"}}>
       <Dropdown.Toggle variant="info" id="dropdown-basic-button">
          👤 {user}
       </Dropdown.Toggle>

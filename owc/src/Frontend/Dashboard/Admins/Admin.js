@@ -5,10 +5,16 @@ import './dashboard.css'
 import Pie from './Pie'
 import Chart from './Googlecharts'
 import axios from 'axios'
+import {GoDatabase} from 'react-icons/go'
+import {MdInventory2,MdOutlinePayments} from 'react-icons/md' 
+import { AiFillDashboard,AiFillSetting } from 'react-icons/ai'
+import { FcBookmark } from 'react-icons/fc'
+import {TbReportSearch} from 'react-icons/tb'
+import { useHistory } from 'react-router-dom'
 export default function Admin() {
-
+const history=useHistory()
  const [regest,setregs]=useState(0)
- const email= localStorage.getItem("email");
+ const email= sessionStorage.getItem("email");
  useEffect(()=>{
    axios.get("http://localhost:5000/Property/count").then((res)=>{
     setregs(res.data)
@@ -17,6 +23,7 @@ export default function Admin() {
  console.log(email);
   return (
 <>
+&nbsp;
 <div class="grid-container">
 
       {/* <!-- Header --> */}
@@ -35,37 +42,37 @@ export default function Admin() {
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
-              <span class="material-icons-outlined"></span> Dashboard
+              <span class="material-icons-outlined"></span> Welcome brother !!!
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <Link to={"props"}>
+              <GoDatabase></GoDatabase>&nbsp; Users
+            </Link>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <MdInventory2></MdInventory2> &nbsp; Inventory
             </a>
           </li>
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
-              <span class="material-icons-outlined">Users</span>
+              <FcBookmark></FcBookmark>&nbsp; Bookings
             </a>
           </li>
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
-              <span class="material-icons-outlined">fact_check</span> Inventory
+              <MdOutlinePayments></MdOutlinePayments>&nbsp; Sales Orders
             </a>
           </li>
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
-              <span class="material-icons-outlined">add_shopping_cart</span> Purchase Orders
+              <TbReportSearch></TbReportSearch>&nbsp; Reports
             </a>
           </li>
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
-              <span class="material-icons-outlined">shopping_cart</span> Sales Orders
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">poll</span> Reports
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">settings</span> Settings
+              <AiFillSetting></AiFillSetting>&nbsp; Settings
             </a>
           </li>
         </ul>
@@ -75,7 +82,7 @@ export default function Admin() {
       {/* <!-- Main --> */}
       <main class="main-container">
         <div class="main-title">
-          <p class="font-weight-bold">DASHBOARD</p>
+          <p class="font-weight-bold"><AiFillDashboard></AiFillDashboard> &nbsp;DASHBOARD</p>
         </div>
 
         <div class="main-cards">
