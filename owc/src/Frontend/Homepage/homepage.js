@@ -13,11 +13,14 @@ import Homepage1 from './Homepage1';
 import Admin from '../Dashboard/Admins/Admin'
 import Report from '../Dashboard/Admins/Report'
 import Props from '../Dashboard/Admins/admprop'
+import User from '../Dashboard/Userdashboard/userdash'
+import Archdash from '../Dashboard/Architect/Archdash';
 function Homepage() {
   return (
     <>
      <BrowserRouter>
         <Navbar />
+        
      <Switch>
       <Route  exact path='/'component={Homepage1}></Route>
      <Route path='/login'component={Login}/>
@@ -25,18 +28,17 @@ function Homepage() {
      <Route path='/aboutus'component={Aboutus}/>
      <Route path='/home'component={Homepage1}/> 
      <Route path='/display'component={Display}/> 
-<<<<<<< HEAD
-     <Route path='/contactus'component={Contactus }/> 
+   <Route path='/contactus'component={Contactus }/> 
 
-=======
      <Route path='/education'component={Education}/> 
      <Route path='/restaurant'component={Restaurant}/> 
      <Route path='/desk'component={Desk}/> 
      <Route path='/admin' component={Admin}/>
-     <Route path='/report' component={Report}/>
+     <Route path='/report' component={Report}/> 
      <Route path='/props' component={Props}/>
+     <Route path='/user' component={User}/>
+     <Route path='/Architect' component={Archdash}/>
     
->>>>>>> 6776c711a74ce0fe65b4c9210db03391905f6a4c
      </Switch>
     
     

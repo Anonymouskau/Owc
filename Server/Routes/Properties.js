@@ -5,7 +5,6 @@ import Property from "../models/property.js";
 const route = Router();
 
 // Add many properties
-<<<<<<< HEAD
 route.post("/props",async(req,res)=>{
   const Property1 = new Property({
     country: req.body.country,
@@ -26,8 +25,6 @@ route.post("/props",async(req,res)=>{
 
 
 })
-=======
->>>>>>> 6776c711a74ce0fe65b4c9210db03391905f6a4c
 
 // Add property
 
@@ -126,4 +123,9 @@ route.delete("/property", (req, res) => {
     .catch(() => res.status(500));
 });
 
+//route to get count
+route.get("/count",(req,res)=>{
+  Property.countDocuments({ _id: { "$exists": true } }).then((value)=>res.send(res.json(value)))
+  .catch(()=>{res.status(500)})
+})
 export default route;

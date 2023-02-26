@@ -1,50 +1,139 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Slider from '../../slider/slider2'
+import './dashboard.css'
+import Pie from './Pie'
+import Chart from './Googlecharts'
+import axios from 'axios'
 export default function Admin() {
+
+ const [regest,setregs]=useState(0)
+ const email= localStorage.getItem("email");
+ useEffect(()=>{
+   axios.get("http://localhost:5000/Property/count").then((res)=>{
+    setregs(res.data)
+   })
+ },[])
+ console.log(email);
   return (
-    <div>
+<>
+<div class="grid-container">
+
+      {/* <!-- Header --> */}
+      
+      {/* <!-- End Header --> */}
+
+      {/* <!-- Sidebar --> */}
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined"></span> {email}
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined"></span> Dashboard
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined">Users</span>
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined">fact_check</span> Inventory
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined">add_shopping_cart</span> Purchase Orders
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined">shopping_cart</span> Sales Orders
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined">poll</span> Reports
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined">settings</span> Settings
+            </a>
+          </li>
+        </ul>
+      </aside>
+      {/* <!-- End Sidebar --> */}
+
+      {/* <!-- Main --> */}
+      <main class="main-container">
+        <div class="main-title">
+          <p class="font-weight-bold">DASHBOARD</p>
+        </div>
+
+        <div class="main-cards">
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">  REGISTERED PROPERTIES</p>
+              <span class="material-icons-outlined text-blue"></span>
+            </div>
+            <span class="text-primary font-weight-bold">{regest}</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">ACTIVE USERS</p>
+              <span class="material-icons-outlined text-orange"></span>
+            </div>
+            <span class="text-primary font-weight-bold">83</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">TOTAL PROFITS</p>
+              <span class="material-icons-outlined text-green"></span>
+            </div>
+            <span class="text-primary font-weight-bold">10230213 Rs</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">Total losses</p>
+              <span class="material-icons-outlined text-red"></span>
+            </div>
+            <span class="text-primary font-weight-bold">1234123 Rs</span>
+          </div>
+
+        </div>
+
+        <div class="charts">
+
+          <div class="charts-card">
+            <p class="chart-title">Top 5 Products</p>
+            <div id="bar-chart"><Pie></Pie></div>
+          </div>
+
+          <div class="charts-card">
+            <p class="chart-title">Purchase and Sales Orders</p>
+            <div id="area-chart"><Chart></Chart></div>
+          </div>
+
+        </div>
+      </main>
+      {/* <!-- End Main --> */}
     
-      <button  style={{"margin":"1%"}} type="button" className="btn btn-dark">Dashboard    </button>
-      <hr></hr>
-    
-      <div className="col-md-2 bg-light d-none d-md-block sidebar">
-    <div className="left-sidebar">
     </div>
-  </div><ul className="nav flex-column sidebar-nav">
-  <Link to={""}><li className="nav-item">
-    <a className="nav-link active" href="#">
-      <svg className="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-      Users
-    </a>
-  </li></Link>
-  <li className="nav-item">
-    <Link  to={'Props'}className="nav-link" href="#">
-      <svg className="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-      Properties
-    </Link>
-  </li>
-  <li className="nav-item">
-    <a className="nav-link" href="#">
-      <svg className="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-      Bookings
-    </a>
-  </li>
-  <li className="nav-item">
-    <Link  to={""}className="nav-link" href="#">
-      <svg className="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-      Invoices
-    </Link>
-  </li>
-  <li className="nav-item">
-    <Link  to ={"Report"}className="nav-link" href="#">
-      <svg className="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-      Reports
-    </Link>
-  </li>
-</ul>
-<Slider></Slider>
-&nbsp;
-</div>
+    &nbsp;
+</>    
+
+
   )
 }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import {NavLink, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import userStore from '../../Zustand/Zustandstore'
 import { data } from '../Dashboard/Admins/Googlecharts'
-
+import { BsFacebook , BsYoutube,BsApple} from 'react-icons/bs';
+import { AiFillTwitterCircle} from 'react-icons/ai';
 export default function Login() {
  
   const history=useHistory()
@@ -34,17 +35,13 @@ export default function Login() {
         <div>
           <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-            <button type="button" className="btn btn-primary btn-floating mx-1">
-              <i className="fab fa-facebook-f"></i>
-            </button>
+            
+            <Link ><h1 className="p-3"><BsFacebook /></h1></Link>
+           <h1 className="p-3"><BsYoutube /></h1>
+            <Link><h1 className="p-3"><AiFillTwitterCircle /></h1></Link>
+            <h1 className="p-3"><BsApple /></h1>
+            
 
-            <button type="button" className="btn btn-primary btn-floating mx-1">
-              <i className="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" className="btn btn-primary btn-floating mx-1">
-              <i className="fab fa-linkedin-in"></i>
-            </button>
           </div>
 
           <div className="divider d-flex align-items-center my-4">
@@ -83,6 +80,7 @@ export default function Login() {
                       value=res.data
                       const{email,...values}=value
                       localStorage.setItem("email",email)
+                      localStorage.setItem("role",values.role);
                       if(email===user.email){
                         history.push("/home")
                       }
