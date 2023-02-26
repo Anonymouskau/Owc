@@ -23,7 +23,7 @@ export default function Navbar() {
 
         
     <div className="container-fluid">
-      <label className="navbar-brand">Owc</label>
+      <label style={{"font-family": 'Source Serif Pro', 'fontSize':'2.5rem'}} className="navbar-brand">OwC</label>
       <button
         className="navbar-toggler"
         type="button"
@@ -112,6 +112,47 @@ export default function Navbar() {
 <Link className="nav-link nav-link-ltr" href="#">Contact</Link>
 <Link className="nav-link nav-link-ltr" href="#">Blog</Link> */}
 </div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 
     <Dropdown  class='nav justify-content-end'style={{"align":"end"}}>
