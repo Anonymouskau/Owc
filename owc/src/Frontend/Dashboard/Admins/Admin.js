@@ -24,7 +24,7 @@ const history=useHistory()
   return (
 <>
 &nbsp;
-<div class="grid-container">
+<div class="grid-container"style={{backgroundColor:'lightgray'}}>
 
       {/* <!-- Header --> */}
       
@@ -51,9 +51,9 @@ const history=useHistory()
             </Link>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <Link to={"allprops"}  >
               <MdInventory2></MdInventory2> &nbsp; Inventory
-            </a>
+            </Link>
           </li>
           <li class="sidebar-list-item">
             <a href="#" target="_blank">

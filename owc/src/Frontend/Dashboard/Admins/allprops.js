@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { Pagination } from '../Pagination/pagination'
+import { Pagination } from '../../Pagination/pagination'
 // import{ GoogleMap }from '@react-google-maps/api'
 
-export default function Properties() {
+export default function Allprops() {
   const[startindex,setstartindex]=useState(1);
   const[postperpage,setpostperpage]=useState(3);
  const [prop,setprop]=useState([])
   const  getproperties= async()=>{
-    await axios.get("http://localhost:5000/Property/education").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
+    await axios.get("http://localhost:5000/Property/property").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
   }
  useEffect(()=>{
@@ -23,7 +23,7 @@ export default function Properties() {
     return (
     <>
      &nbsp;
-     <h1 style={{"margin":"4%","fontFamily":"italic"}}> CLASS ROOMS</h1>
+     <h1 style={{"margin":"4%","fontFamily":"italic",'textAlign':'center'}}> INVENTORY</h1>
      <hr style={{"color":"black"}}></hr>
        
         
@@ -32,8 +32,8 @@ export default function Properties() {
      {currentprops.map((proper)=>{
       return(
         <>
-        
-        <div  className="card" style={{"width": "18rem","margin":"4%"}} >
+        <table>
+       <tr> <div  className="card" style={{"width": "18rem","margin":"4%"}} >
         <img className="card-img-top" src={proper.image} />
         <div className="card-body" >
           <h5 className="card-title">{proper.Propertyname}</h5>
@@ -42,7 +42,8 @@ export default function Properties() {
           <Link  to ={"Cart"}usehref={proper.prize} className="btn btn-primary">Book Now</Link>
         </div>
         
-      </div>
+      </div></tr>
+      </table>
       
       &nbsp;
       </>
@@ -51,7 +52,7 @@ export default function Properties() {
       )
      })}
  
- <Pagination totalpost={prop.length} postperpage={postperpage} setCurrentpage={setstartindex} currentpage={startindex}></Pagination>
+ <Pagination totalpost={prop.length} postperpage={postperpage} setCurrentpage={setstartindex} currentpage={startindex}></Pagination> 
  &nbsp;
 </>
   )

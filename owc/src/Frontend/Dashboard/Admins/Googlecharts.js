@@ -9,6 +9,7 @@ export const data = [
   ["Canada", 500],
   ["France", 600],
   ["India", 700],
+  
 ];
 
 export  default function App() {

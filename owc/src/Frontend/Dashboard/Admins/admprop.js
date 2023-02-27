@@ -1,120 +1,99 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export default function Admprop() {
+ 
+ const [user,setuser]=useState([]);
+ const tbles=(async()=>{
+     
+  await axios.get("http://localhost:5000/User/user").then((res)=>{
+       
+           setuser(res.data)
+
+
+  })
+ })
+
+ useEffect(()=>{
+   tbles()
+ },)
+
+ 
+
   return (
 <>
 &nbsp;
+<h1 style={{textAlign:"center"}}> Active Users</h1>
+<hr></hr>
 <div class="container">
 <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
       <th>Name</th>
-      <th>Title</th>
+      <th>Roles</th>
       <th>Status</th>
-      <th>Position</th>
+      <th>Contacts</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
+   { user.map((props)=>{
+     
+    return( <tr>
       <td>
         <div class="d-flex align-items-center">
-          <img
+         { props.role=="Admin"? <img
               src={"https://mdbootstrap.com/img/new/avatars/8.jpg"}
               alt=""
               style={{"width": "45px", height: "45px"}}
+    
+    
               class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">John Doe</p>
-            <p class="text-muted mb-0">john.doe@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">Software engineer</p>
-        <p class="text-muted mb-0">IT department</p>
-      </td>
-      <td>
-        <span class="badge badge-success rounded-pill d-inline">Active</span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button type="button" class="btn btn-link btn-sm btn-rounded">
-          Edit
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src={"https://mdbootstrap.com/img/new/avatars/6.jpg"}
-              class="rounded-circle"
+              />: <img
+              src={"https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"}
               alt=""
               style={{"width": "45px", height: "45px"}}
-              />
+    
+    
+              class="rounded-circle"/>
+              
+         }  
           <div class="ms-3">
-            <p class="fw-bold mb-1">Alex Ray</p>
-            <p class="text-muted mb-0">alex.ray@gmail.com</p>
+            <p class="fw-bold mb-1">{props.name}</p>
+            <p class="text-muted mb-0">{props.email}</p>
           </div>
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">Consultant</p>
-        <p class="text-muted mb-0">Finance</p>
+        <p class="fw-normal mb-1">{props.role}</p>
+        <p class="text-muted mb-0"></p>
       </td>
       <td>
-        <span class="badge badge-primary rounded-pill d-inline"
-              >Onboarding</span
-          >
+        
+        {  props.role=="Admin"? <button class=" btn btn-primary btn-rounded">Active</button>:
+        <button class="btn btn-dark btn-rounded">Offline</button>
+           
+    }
       </td>
-      <td>Junior</td>
+      <td><p class="text-muted mb-0">{props.phoneno}</p></td>
       <td>
-        <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark"
-                >
+        <button type="button" class="btn btn-outline-warning">
           Edit
+        </button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button type="button" class="btn btn-outline-danger">
+           delete
         </button>
       </td>
     </tr>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src={"https://mdbootstrap.com/img/new/avatars/7.jpg"}
-              class="rounded-circle"
-              alt=""
-              style={{"width": "45px", height:"45px"}}
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">Kate Hunington</p>
-            <p class="text-muted mb-0">kate.hunington@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">Designer</p>
-        <p class="text-muted mb-0">UI/UX</p>
-      </td>
-      <td>
-        <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark"
-                >
-          Edit
-        </button>
-      </td>
-    </tr>
+   )})
+   } 
   </tbody>
 </table>
+   <br></br>
+   <div class="text-center">
+  <button type="button" class="btn btn-outline-success"> Add New Members</button>
+</div>
 </div>
 &nbsp;
 </>

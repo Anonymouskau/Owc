@@ -15,6 +15,7 @@ import Report from '../Dashboard/Admins/Report'
 import Props from '../Dashboard/Admins/admprop'
 import User from '../Dashboard/Userdashboard/userdash'
 import Archdash from '../Dashboard/Architect/Archdash';
+import Allprops from '../Dashboard/Admins/allprops';
 function Homepage() {
   return (
     <>
@@ -38,7 +39,8 @@ function Homepage() {
      <Route path='/props' component={Props}/>
      <Route path='/user' component={User}/>
      <Route path='/Architect' component={Archdash}/>
-    
+     <Route path='/allprops' component={Allprops}/>
+     
      </Switch>
     
     

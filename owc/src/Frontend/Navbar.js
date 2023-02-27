@@ -6,7 +6,7 @@ import userStore from "../Zustand/Zustandstore";
 
 export default function Navbar() {
   
-  
+  const[bstate,setbstate]=useState(false)
   const[state,setuser]=useState("")
   const user=sessionStorage.getItem("email")
   const role=sessionStorage.getItem("role")
@@ -157,11 +157,11 @@ export default function Navbar() {
 
     <Dropdown  class='nav justify-content-end'style={{"align":"end"}}>
       <Dropdown.Toggle variant="info" id="dropdown-basic-button">
-         👤 {user}
+         👤 {bstate ? user:""}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Link to={()=>{
+        <Link  className='nav-link active' to={()=>{
         if(role==="Begin Journey With Us"){
            return "Architect"
         }
@@ -175,8 +175,8 @@ export default function Navbar() {
           return 'home'
         }
         }}><Dropdown.Item  href="#/action-1">Dashboard</Dropdown.Item></Link>
-        
-        <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+        <br/>
+        <Link className='nav-link active'><Dropdown.Item  href="#/action-3">Logout</Dropdown.Item></Link>
       </Dropdown.Menu>
     </Dropdown>
 </nav>
@@ -186,7 +186,7 @@ export default function Navbar() {
   useEffect(()=>{
     if(user){
       setuser(user)
-
+     setbstate(true)
     }
   
   },[state])

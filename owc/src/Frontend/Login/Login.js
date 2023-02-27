@@ -6,7 +6,7 @@ import { data } from '../Dashboard/Admins/Googlecharts'
 import { BsFacebook , BsYoutube,BsApple} from 'react-icons/bs';
 import { AiFillTwitterCircle} from 'react-icons/ai';
 export default function Login() {
- 
+  const[vali,setvali]=useState(false)
   const history=useHistory()
   const [user,SetUser]=useState({
    email:"",
@@ -72,7 +72,13 @@ export default function Login() {
           </div>
 
           <div className="text-center text-lg-start mt-4 pt-2">
-            <button  onClick={async()=>{
+            <Link to={()=>{if(vali){
+                       return "/home"
+
+            }
+          else {
+             return"/login"
+          } }}><button  onClick={async()=>{
                    
                   var value
                    await  axios.post("http://localhost:5000/User/Login",user).then((res)=>{
@@ -82,7 +88,7 @@ export default function Login() {
                       sessionStorage.setItem("email",email)
                       sessionStorage.setItem("role",values.role);
                       if(email===user.email){
-                        history.push("/home")
+                       setvali(true)
                       }
                       else{
                       alert("😵‍💫😵‍💫 Invalid Credentials")
@@ -91,7 +97,7 @@ export default function Login() {
                   
                  
             }}type="button" className="btn btn-primary btn-lg"
-              style={{"padding-left": "2.5rem", "padding-right": "2.5rem"}}>Login</button>
+              style={{"padding-left": "2.5rem", "padding-right": "2.5rem"}}>Login</button></Link>
             <p  className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <label for="register"><span href="#!"
                onClick={()=>{history.push('/register')}} className="link-danger" name='register'>Register</span></label></p>
           </div>
