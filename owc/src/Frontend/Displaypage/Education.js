@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Pagination } from '../Pagination/pagination'
 // import{ GoogleMap }from '@react-google-maps/api'
 import StripeCheckout  from 'react-stripe-checkout'
@@ -9,6 +9,7 @@ export default function Properties() {
   
   const[startindex,setstartindex]=useState(1);
   const[postperpage,setpostperpage]=useState(3);
+ const history=useHistory()
  const [prop,setprop]=useState([])
   const  getproperties= async()=>{
     await axios.get("http://localhost:5000/Property/education").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
@@ -41,9 +42,13 @@ export default function Properties() {
           <h5 className="card-title">{proper.Propertyname}</h5>
           <p className="card-text">{proper.Propertydesc}</p>
           Prize:<b>{proper.prize}</b>&nbsp;
-          <StripeCheckout image={proper.image}  stripekey="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
-          <button  usehref={proper.prize} className="btn btn-primary">Book Now</button>
-          </StripeCheckout>
+          { sessionStorage.getItem("email")!=null?
+          <StripeCheckout  image={proper.image} stripeKey ="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
+          <button  usehref={proper.prize*10} className="btn btn-primary">Book Now</button>
+          </StripeCheckout>:<button onClick={()=>{
+            history.push("/login")
+          }} className="btn btn-primary">Book Now</button>
+         }
         </div>
         
       </div>
