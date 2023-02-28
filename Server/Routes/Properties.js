@@ -117,11 +117,12 @@ route.get("/restaurant", (req, res) => {
 });
 
 //remove by id
-route.delete("/property", (req, res) => {
-  Property.deleteOne({ _id: req.params.id })
-    .then(() => res.status(200).json("sucessfull"))
-    .catch(() => res.status(500));
-});
+  // route.post("/property", (req, res) => {
+  //   console.log(req.body._id);
+  //   Property.deleteOne({ _id: req.body._id })
+  //     .then(() => res.status(200).json("sucessfull"))
+  //     .catch(() => res.status(500));
+  // });
 
 //route to get count
 route.get("/count",(req,res)=>{
@@ -130,12 +131,10 @@ route.get("/count",(req,res)=>{
 })
 
 
-//remove by id
+//remove by propertyname
 route.post("/pdelete", (req, res) => {
-  console.log(req.body);
-  Property.deleteOne({ Propertyname:req.body.Propertyname})
-    .then((rec) => res.send(res.json(rec)))
-    .catch(() => res.status(500));
+  
+  Property.deleteOne({_id:req.body._id}).then((user)=>res.status(200).json(user)).catch((err)=>res.status(500).json(err))
 });
 
 export default route;

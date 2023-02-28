@@ -91,10 +91,16 @@ const [email1,setemail]=useState({ email: ""
               
                 
                
-            
-             console.log(email1);
-             axios.post("http://localhost:5000/User/udelete",{email:e.target.value}).then((res)=>{window.location.reload(true)}).catch((err)=>console.log(err))       
-   
+              let pr=prompt(" Are you sure you Want to delete?\n Enter your Email :")
+              let email=sessionStorage.getItem("email")
+     if(pr.valueOf()===email.valueOf()){          
+
+              console.log(email1);
+             axios.post("http://localhost:5000/User/udelete",{email:e.target.value}).then((res)=>{            
+                 window.location.reload(true)
+             
+          }).catch((err)=>console.log(err))       
+        }
         }}type="button" class="btn btn-outline-danger">
            
            delete

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Pagination } from '../../Pagination/pagination'
 
 // import{ GoogleMap }from '@react-google-maps/api'
 
 export default function Allprops() {
+    const history =useHistory()
   const[startindex,setstartindex]=useState(1);
   const[postperpage,setpostperpage]=useState(3);
  const [prop,setprop]=useState([])
@@ -41,9 +42,18 @@ export default function Allprops() {
           <p className="card-text">{proper.Propertydesc}</p>
           Prize:<b>{proper.prize}</b>&nbsp;
           <br></br>
-          <button  value={proper.Propertyname}onClick={(e)=>{
+          <button  value={proper._id}onClick={(e)=>{
 
-            axios.post("http://localhost:5000/Property/pdelete",{Proprertyname:e.target.value}).then((res)=>{console.log(res);})
+            axios.post("http://localhost:5000/Property/pdelete",{ _id:e.target.value}).then((res)=>{let pr=prompt(" Are you sure you Want to delete?\n Enter your Email :")
+            
+            if(pr!=null){
+                window.location.reload(true)
+            }
+        else{
+            history.push("allprops")
+            
+        } 
+        })
           }}   className="btn btn-outline-danger">delete</button>&nbsp;&nbsp;&nbsp;
           <Link  usehref={proper.prize} className="btn btn-outline-warning">Update</Link>
           <br></br>
