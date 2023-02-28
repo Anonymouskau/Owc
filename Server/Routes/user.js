@@ -89,4 +89,9 @@ User.deleteOne({_id:req.params.id}).then((user)=>res.status(200).json(user)).cat
 })
 
 
+route.post("/udelete",(req,res)=>{
+   console.log(req.body);
+   User.deleteOne({email:req.body.email}).then((user)=>res.status(200).json(user)).catch((err)=>res.status(500).json(err))
+})
+
  export default(route)

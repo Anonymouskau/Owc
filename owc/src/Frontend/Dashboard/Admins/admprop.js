@@ -1,9 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 
 export default function Admprop() {
- 
+ const history = useHistory()
  const [user,setuser]=useState([]);
+const [email1,setemail]=useState({ email: ""
+})
+ 
  const tbles=(async()=>{
      
   await axios.get("http://localhost:5000/User/user").then((res)=>{
@@ -77,11 +81,22 @@ export default function Admprop() {
       </td>
       <td><p class="text-muted mb-0">{props.phoneno}</p></td>
       <td>
-        <button type="button" class="btn btn-outline-warning">
+        <button onClick={()=>{
+           history.push("/update")          
+        }} type="button" class="btn btn-outline-warning">
           Edit
         </button>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <button type="button" class="btn btn-outline-danger">
+        <button  name="email"value={props.email} onClick={(e)=>{
+              
+                
+               
+            
+             console.log(email1);
+             axios.post("http://localhost:5000/User/udelete",{email:e.target.value}).then((res)=>{window.location.reload(true)}).catch((err)=>console.log(err))       
+   
+        }}type="button" class="btn btn-outline-danger">
+           
            delete
         </button>
       </td>
@@ -92,7 +107,9 @@ export default function Admprop() {
 </table>
    <br></br>
    <div class="text-center">
-  <button type="button" class="btn btn-outline-success"> Add New Members</button>
+  <button  onClick={()=>{
+    history.push("/register")      
+  }}type="button" class="btn btn-outline-success"> Add New Members</button>
 </div>
 </div>
 &nbsp;

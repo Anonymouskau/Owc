@@ -73,7 +73,9 @@ export default function Login() {
 
           <div className="text-center text-lg-start mt-4 pt-2">
             <Link to={()=>{if(vali){
-                       return "/home"
+                           history.push("/home") 
+                          window.location.reload(true)
+                              alert(`Welcome back  🙂🙂😀😃${user.email}`)                  
 
             }
           else {

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Pagination } from '../../Pagination/pagination'
+
 // import{ GoogleMap }from '@react-google-maps/api'
 
 export default function Allprops() {
@@ -39,7 +40,23 @@ export default function Allprops() {
           <h5 className="card-title">{proper.Propertyname}</h5>
           <p className="card-text">{proper.Propertydesc}</p>
           Prize:<b>{proper.prize}</b>&nbsp;
-          <Link  to ={"Cart"}usehref={proper.prize} className="btn btn-primary">Book Now</Link>
+          <br></br>
+          <button  value={proper.Propertyname}onClick={(e)=>{
+
+            axios.post("http://localhost:5000/Property/pdelete",{Proprertyname:e.target.value}).then((res)=>{console.log(res);})
+          }}   className="btn btn-outline-danger">delete</button>&nbsp;&nbsp;&nbsp;
+          <Link  usehref={proper.prize} className="btn btn-outline-warning">Update</Link>
+          <br></br>
+          &nbsp;
+          &nbsp;
+          &nbsp;  &nbsp;  &nbsp;
+          &nbsp;  &nbsp;  &nbsp;
+          <br/>  
+          &nbsp;
+          &nbsp;
+          &nbsp;  &nbsp;  &nbsp;
+          &nbsp;  &nbsp;  &nbsp;
+          <Link  to ={"Cart"}usehref={proper.prize} className="btn btn-outline-success">Add</Link>
         </div>
         
       </div></tr>

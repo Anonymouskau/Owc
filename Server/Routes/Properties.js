@@ -128,4 +128,14 @@ route.get("/count",(req,res)=>{
   Property.countDocuments({ _id: { "$exists": true } }).then((value)=>res.send(res.json(value)))
   .catch(()=>{res.status(500)})
 })
+
+
+//remove by id
+route.post("/pdelete", (req, res) => {
+  console.log(req.body);
+  Property.deleteOne({ Propertyname:req.body.Propertyname})
+    .then((rec) => res.send(res.json(rec)))
+    .catch(() => res.status(500));
+});
+
 export default route;

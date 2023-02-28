@@ -22,7 +22,7 @@ export default function Register() {
 }
 const registeration=()=>{
  const{name, email, password, repass,phoneno, role}=user
- if(name && email && password===repass && phoneno.length===10 && role){
+ if(name && email && password===repass && phoneno.length===10 || role){
   axios.post("http://localhost:5000/User/user",user).then(()=>{alert(`Welcome ${user.name} to Owc ✌️✌️✌️` )
   history.push('/home')
  }).catch((err)=>console.log(err))

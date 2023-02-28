@@ -7,8 +7,8 @@ import userStore from "../Zustand/Zustandstore";
 export default function Navbar() {
   
   const[bstate,setbstate]=useState(false)
-  const[state,setuser]=useState("")
-  const user=sessionStorage.getItem("email")
+    const[state,setuser]=useState(sessionStorage.getItem("email"))
+   {console.log(state)}
   const role=sessionStorage.getItem("role")
   
   const [dropd,setdropd]=useState()
@@ -49,6 +49,7 @@ export default function Navbar() {
               Home
             </label>
           </li>
+       {  state==null? 
           <li className="nav-item">
             <label
               onClick={() => {
@@ -60,7 +61,21 @@ export default function Navbar() {
               Login
             </label>
           </li>
-
+          :<li className="nav-item">
+          <label
+            onClick={() => {
+              sessionStorage.removeItem("email")
+              sessionStorage.removeItem("role")
+              history.push("/home")
+              window.location.reload(true)
+            }}
+            className="nav-link nav-link-ltr"
+            aria-current="page"
+          >
+            Logout
+          </label>
+        </li>
+  }
           <li className="nav-item">
             <label
               onClick={() => {
@@ -157,7 +172,7 @@ export default function Navbar() {
 
     <Dropdown  class='nav justify-content-end'style={{"align":"end"}}>
       <Dropdown.Toggle variant="info" id="dropdown-basic-button">
-         👤 {bstate ? user:""}
+         👤 {state}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
@@ -176,7 +191,8 @@ export default function Navbar() {
         }
         }}><Dropdown.Item  href="#/action-1">Dashboard</Dropdown.Item></Link>
         <br/>
-        <Link className='nav-link active'><Dropdown.Item  href="#/action-3">Logout</Dropdown.Item></Link>
+        
+       
       </Dropdown.Menu>
     </Dropdown>
 </nav>
@@ -184,15 +200,15 @@ export default function Navbar() {
   }
 
   useEffect(()=>{
-    if(user){
-      setuser(user)
-     setbstate(true)
-    }
-  
-  },[state])
+    setbstate(sessionStorage.getItem("email"))
+       
+  })
   const history = useHistory();
   return (
-  <>{dropdown()}</>
+  <>{dropdown() }
+  
+  
+  </>
 
     // </nav>
   );
