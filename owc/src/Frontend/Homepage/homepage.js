@@ -16,6 +16,7 @@ import Props from '../Dashboard/Admins/admprop'
 import User from '../Dashboard/Userdashboard/userdash'
 import Archdash from '../Dashboard/Architect/Archdash';
 import Allprops from '../Dashboard/Admins/allprops';
+import  Properties  from '../Propertyadd/properties';
 function Homepage() {
   return (
     <>
@@ -30,6 +31,7 @@ function Homepage() {
      <Route path='/home'component={Homepage1}/> 
      <Route path='/display'component={Display}/> 
    <Route path='/contactus'component={Contactus }/> 
+   <Route path='/add'component={Properties }/> 
 
      <Route path='/education'component={Education}/> 
      <Route path='/restaurant'component={Restaurant}/> 

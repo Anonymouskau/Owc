@@ -60,20 +60,16 @@ const history=useHistory()
               <FcBookmark></FcBookmark>&nbsp; Bookings
             </a>
           </li>
-          <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <MdOutlinePayments></MdOutlinePayments>&nbsp; Sales Orders
-            </a>
-          </li>
+          
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
               <TbReportSearch></TbReportSearch>&nbsp; Reports
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <AiFillSetting></AiFillSetting>&nbsp; Settings
-            </a>
+            <Link to={"/add"} >
+             <>+</> &nbsp;Add Properties
+            </Link>
           </li>
         </ul>
       </aside>
