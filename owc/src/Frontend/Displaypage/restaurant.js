@@ -9,7 +9,11 @@ export default function Properties() {
  const history =useHistory()
   const[startindex,setstartindex]=useState(1);
   const[postperpage,setpostperpage]=useState(3);
+  const[obj,setobj]=useState("")
  const [prop,setprop]=useState([])
+ const handler=(token,e)=>{
+        console.log(token,e);
+ }
   const  getproperties= async()=>{
     await axios.get("http://localhost:5000/Property/restaurant").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
@@ -41,8 +45,14 @@ export default function Properties() {
           <h5 className="card-title">{proper.Propertyname}</h5>
           <p className="card-text">{proper.Propertydesc}</p>
           { sessionStorage.getItem("email")!=null?
-          <StripeCheckout  image={proper.image} stripeKey ="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
-          <button  usehref={proper.prize*10} className="btn btn-primary">Book Now</button>
+          <StripeCheckout   token={(token)=>{
+            
+            axios.post("http://localhost:5000/Payment/payment",{token,_id:proper._id})    
+            // axios.post("http://localhost:5000/Property/pdelete",{_id:proper._id}).then((res)=>{console.log(res);}).catch(err=>console.log(err))
+             
+            
+          }} image={proper.image} stripeKey ="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
+          <button     usehref={proper.prize*10} className="btn btn-primary">Book Now</button>
           </StripeCheckout>:<button onClick={()=>{
                         history.push("login")
           }} className="btn btn-primary">Book Now</button>
