@@ -16,7 +16,12 @@ import Props from '../Dashboard/Admins/admprop'
 import User from '../Dashboard/Userdashboard/userdash'
 import Archdash from '../Dashboard/Architect/Archdash';
 import Allprops from '../Dashboard/Admins/allprops';
+<<<<<<< HEAD
+import Forgotpass from '../Login/Forgotpass'
+
+=======
 import  Properties  from '../Propertyadd/properties';
+>>>>>>> f38cc243e85f8945dc3d87737a45b54f02ed9f19
 function Homepage() {
   return (
     <>
@@ -42,6 +47,7 @@ function Homepage() {
      <Route path='/user' component={User}/>
      <Route path='/Architect' component={Archdash}/>
      <Route path='/allprops' component={Allprops}/>
+     <Route path='/Forgotpass' component={Forgotpass}/>
      
      </Switch>
     
