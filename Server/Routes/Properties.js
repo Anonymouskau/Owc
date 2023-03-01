@@ -137,4 +137,11 @@ route.post("/pdelete", (req, res) => {
   Property.deleteOne({_id:req.body._id}).then((user)=>res.status(200).json(user)).catch((err)=>res.status(500).json(err))
 });
 
+//add image architecture
+route.put('/customproperty',(req,res)=>{
+  Property.updateOne(
+    { email:req.body.email},
+    {$set:{image:req.body.image}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
+})
+
 export default route;
