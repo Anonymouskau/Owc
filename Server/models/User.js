@@ -7,7 +7,7 @@ import mongoose, { Schema } from "mongoose";
     password:{type:String,required:true },
     phoneno:{type:Number,required:true},
     role:{type:String, required:true }  ,
-    images:  {type:String}
+    images:  {type:String, default:""}
 
 
 

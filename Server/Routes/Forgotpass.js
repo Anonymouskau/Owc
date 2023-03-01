@@ -59,7 +59,7 @@ route.get("/viewnewpasspage/:token",(req,resp)=>{
 //Update  
 route.post('/resetpassword', (req, res) => {
     const {email,password}=req.body;
-    User.updateOne({ email: email }, { $set: { password: password } }, { new: true }).then(() => res.send("Password has been sucess fully updated")).catch(err =>  res.send(err));
+    User.updateOne({ email: email }, { $set: { password: password } }, { new: true }).then(() => res.redirect( 301,"http://localhost:3000/login")).catch(err =>  res.send(err));
 
 })
 

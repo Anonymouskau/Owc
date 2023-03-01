@@ -6,11 +6,14 @@ import { Pagination } from '../Pagination/pagination'
 // import{ GoogleMap }from '@react-google-maps/api'
 import StripeCheckout  from 'react-stripe-checkout'
 export default function Properties() {
-  
+ const history =useHistory()
   const[startindex,setstartindex]=useState(1);
   const[postperpage,setpostperpage]=useState(3);
- const history=useHistory()
+  const[obj,setobj]=useState("")
  const [prop,setprop]=useState([])
+ const handler=(token,e)=>{
+        console.log(token,e);
+ }
   const  getproperties= async()=>{
     await axios.get("http://localhost:5000/Property/education").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
@@ -26,7 +29,7 @@ export default function Properties() {
     return (
     <>
      &nbsp;
-     <h1 style={{"margin":"4%","fontFamily":"italic"}}> CLASS ROOMS</h1>
+     <h1 style={{"margin":"4%","fontFamily":"italic"}}> Cafes && Restaurannts</h1>
      <hr style={{"color":"black"}}></hr>
        
         
@@ -41,14 +44,20 @@ export default function Properties() {
         <div className="card-body" >
           <h5 className="card-title">{proper.Propertyname}</h5>
           <p className="card-text">{proper.Propertydesc}</p>
-          Prize:<b>{proper.prize}</b>&nbsp;
           { sessionStorage.getItem("email")!=null?
-          <StripeCheckout  image={proper.image} stripeKey ="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
-          <button  usehref={proper.prize*10} className="btn btn-primary">Book Now</button>
+          <StripeCheckout   token={(token)=>{
+            
+            axios.post("http://localhost:5000/Payment/payment",{token,_id:proper._id})    
+            // axios.post("http://localhost:5000/Property/pdelete",{_id:proper._id}).then((res)=>{console.log(res);}).catch(err=>console.log(err))
+             
+            
+          }} image={proper.image} stripeKey ="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
+          <button     usehref={proper.prize*10} className="btn btn-primary">Book Now</button>
           </StripeCheckout>:<button onClick={()=>{
-            history.push("/login")
+                        history.push("login")
           }} className="btn btn-primary">Book Now</button>
          }
+
         </div>
         
       </div>

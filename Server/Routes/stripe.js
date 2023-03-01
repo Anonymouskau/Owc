@@ -1,8 +1,25 @@
 import { Router } from "express";
+import Stripe from "../models/Booking.js";
 const router=Router()
-router.post("/payment", (req, res) => {
-  console.log(req.body)
+router.post("/payment", async (req, res) => {
+ console.log("in payment");
+  try{
+  var book= new Stripe({
+     email:req.body.email,
+     Propertyname:req.body.Propertyname
+     ,
+     image:req.body.image,
+     Propertydesc:req.body.Propertydesc
+   })  
 
-
+  await  book.save().then(resolve=>{res.send(resolve)}).catch((err)=>console.log(err))  
+  }catch{err=>{console.log(err);}
+     
+  }
 })
+
+
+
+
+
  export default router;

@@ -68,7 +68,7 @@ export default function Login() {
                 Remember me
               </label>
             </div>
-            <span href="#!" className="text-body" onClick={()=>{history.push('/Forgotpass')}}>Forgot password?</span>
+            <Link href="#!" className="text-body" onClick={()=>{history.push('/Forgotpass')}}>Forgot password?</Link>
           </div>
 
           <div className="text-center text-lg-start mt-4 pt-2">
