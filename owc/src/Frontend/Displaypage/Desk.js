@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 import { Pagination } from '../Pagination/pagination'
 // import{ GoogleMap }from '@react-google-maps/api'
-
+import StripeCheckout  from 'react-stripe-checkout'
 export default function Properties() {
+  const history =useHistory()
   const[startindex,setstartindex]=useState(1);
   const[postperpage,setpostperpage]=useState(3);
  const [prop,setprop]=useState([])
@@ -13,6 +14,7 @@ export default function Properties() {
     await axios.get("http://localhost:5000/Property/desk").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
   }
+
  useEffect(()=>{
   getproperties()
  },[])
@@ -23,8 +25,9 @@ export default function Properties() {
     return (
     <>
      &nbsp;
-    <h1 style={{"margin":"4%","fontFamily":"italic"}}>COLLABRATIVE  DESKS</h1>
+     <h1 style={{"margin":"4%","fontFamily":"italic"}}> Collabrative Desks</h1>
      <hr style={{"color":"black"}}></hr>
+       
         
         
     <iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3867250.9286021274!2d76.77476745!3d18.815426549999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1677051620764!5m2!1sen!2sin"} width="800" height="1000" style={{"border":"0" ,"allowfullscreen":"" ,"loading":"lazy" ,"referrerpolicy":"no-referrer-when-downgrade",} }align="right"></iframe>  
@@ -38,7 +41,14 @@ export default function Properties() {
           <h5 className="card-title">{proper.Propertyname}</h5>
           <p className="card-text">{proper.Propertydesc}</p>
           Prize:<b>{proper.prize}</b>&nbsp;
-          <Link  to ={"Cart"}href="#" className="btn btn-primary">Book Now</Link>
+          { sessionStorage.getItem("email")!=null?
+          <StripeCheckout  image={proper.image} stripeKey ="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
+          <button  usehref={proper.prize*10} className="btn btn-primary">Book Now</button>
+          </StripeCheckout>:<button onClick={()=>{
+            history.push("/login")
+          }} className="btn btn-primary">Book Now</button>
+         }
+
         </div>
         
       </div>
