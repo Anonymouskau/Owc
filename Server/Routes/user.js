@@ -94,4 +94,21 @@ route.post("/udelete",(req,res)=>{
    User.deleteOne({email:req.body.email}).then((user)=>res.status(200).json(user)).catch((err)=>res.status(500).json(err))
 })
 
+//edit user 
+route.put('/edituser',(req,res)=>{
+   User.findOneAndUpdate(
+     { email:req.body.email},
+     {$set:{name:req.body.name,phoneno:req.body.phoneno,role:req.body.role}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
+})
+
+
+//add custom iamges
+
+ route.put('/custom',(req,res)=>{
+   User.findOneAndUpdate(
+     { email:req.body.email},
+     {$set:{name:req.body.name,images:req.body.images}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
+})
+ 
+
  export default(route)
