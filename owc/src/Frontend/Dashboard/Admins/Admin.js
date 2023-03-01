@@ -56,9 +56,9 @@ const history=useHistory()
             </Link>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <Link to={"/book"}>
               <FcBookmark></FcBookmark>&nbsp; Bookings
-            </a>
+            </Link>
           </li>
           
           <li class="sidebar-list-item">

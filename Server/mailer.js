@@ -18,7 +18,7 @@ async function sendmail(to_mail,link) {
     mailOptions = {
       from: "rsmore2232@gmail.com", // sender address
       to: to_mail, // list of receivers
-      subject: "Do not shear link", // Subject line
+      subject: "Do not share link", // Subject line
       html: contents, // plain text body
     };
 

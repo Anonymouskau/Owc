@@ -29,7 +29,7 @@ export default function Properties() {
     return (
     <>
      &nbsp;
-     <h1 style={{"margin":"4%","fontFamily":"italic"}}> Cafes && Restaurannts</h1>
+     <h1 style={{"margin":"4%","fontFamily":"italic"}}> Cafes && Resto</h1>
      <hr style={{"color":"black"}}></hr>
        
         
@@ -46,8 +46,9 @@ export default function Properties() {
           <p className="card-text">{proper.Propertydesc}</p>
           { sessionStorage.getItem("email")!=null?
           <StripeCheckout   token={(token)=>{
-            
-            axios.post("http://localhost:5000/Payment/payment",{token,_id:proper._id})    
+             const {...values} =token
+            console.log(values)
+           // axios.post("http://localhost:5000/Payment/payment",{token,_id:proper._id})    
             // axios.post("http://localhost:5000/Property/pdelete",{_id:proper._id}).then((res)=>{console.log(res);}).catch(err=>console.log(err))
              
             

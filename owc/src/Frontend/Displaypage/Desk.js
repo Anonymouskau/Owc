@@ -29,7 +29,7 @@ export default function Properties() {
     return (
     <>
      &nbsp;
-     <h1 style={{"margin":"4%","fontFamily":"italic"}}> Cafes && Restaurannts</h1>
+     <h1 style={{"margin":"4%","fontFamily":"italic"}}> COLLABRATIVE DESKS</h1>
      <hr style={{"color":"black"}}></hr>
        
         

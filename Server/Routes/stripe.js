@@ -17,7 +17,15 @@ router.post("/payment", async (req, res) => {
      
   }
 })
+//getall
+router.get("/payment",(req,res)=>{
 
+Stripe.find().then((resolve=>{
+
+  res.send(res.json(resolve))
+}))
+
+})
 
 
 
