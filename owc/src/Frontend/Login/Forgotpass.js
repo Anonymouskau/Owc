@@ -29,8 +29,10 @@ export default function ForgotPassword() {
 
     return (
         <>
+        &nbsp;
             <div className="card text-center m-5 mx-auto " style={{width: "300px"}}>
-                <div className="card-header h5 text-white bg-primary">Password Reset</div>
+                <div className="card-header h5 text-white bg-danger">Password Reset</div>
+                &nbsp;
                 <div className="card-body px-5">
                     <p className="card-text py-2">
                         Enter your email address and we'll send you an email with instructions to reset your password.
@@ -39,13 +41,14 @@ export default function ForgotPassword() {
                         <input type="email" id="typeEmail" className="form-control my-3" name="email" value={emailval} onChange={(e)=>setEmailval(e.target.value)} />
                         <label className="form-label" for="typeEmail">Email input</label>
                     </div>
-                    <button className="btn btn-primary w-100" onClick={resethandler}>Reset password</button>
+                    <button className="btn btn-primary " onClick={resethandler}>Reset password</button>
                     <div className="d-flex justify-content-between mt-4">
                         <a className=""  onClick={()=>{history.push('/login')}}>Login</a>
                         <a className="" onClick={()=>{history.push('/register')}}>Register</a>
                     </div>
                 </div>
             </div>
+            &nbsp;
         </>
     )
 }

@@ -9,7 +9,8 @@ router.post("/payment", async (req, res) => {
      Propertyname:req.body.Propertyname
      ,
      image:req.body.image,
-     Propertydesc:req.body.Propertydesc
+     Propertydesc:req.body.Propertydesc,
+     prize:req.body.prize
    })  
 
   await  book.save().then(resolve=>{res.send(resolve)}).catch((err)=>console.log(err))  
@@ -27,7 +28,15 @@ Stripe.find().then((resolve=>{
 
 })
 
+router.post("/booking",(req,res)=>{
 
+  Stripe.find({email:req.body.email}).then((resolve=>{
+  
+    res.send(res.json(resolve))
+  }))
+  
+  })
+  
 
 
  export default router;

@@ -46,12 +46,12 @@ const history=useHistory()
             </a>
           </li>
           <li class="sidebar-list-item">
-            <Link to={"props"}>
+            <Link to={"/props"}>
               <GoDatabase></GoDatabase>&nbsp; Users
             </Link>
           </li>
           <li class="sidebar-list-item">
-            <Link to={"allprops"}  >
+            <Link to={"/allprops"}  >
               <MdInventory2></MdInventory2> &nbsp; Inventory
             </Link>
           </li>
@@ -62,9 +62,9 @@ const history=useHistory()
           </li>
           
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <Link to={"/report"} >
               <TbReportSearch></TbReportSearch>&nbsp; Reports
-            </a>
+            </Link>
           </li>
           <li class="sidebar-list-item">
             <Link to={"/add"} >
@@ -120,12 +120,12 @@ const history=useHistory()
         <div class="charts">
 
           <div class="charts-card">
-            <p class="chart-title">Top 5 Products</p>
+            <p class="chart-title">Top 5 Properties</p>
             <div id="bar-chart"><Pie></Pie></div>
           </div>
 
           <div class="charts-card">
-            <p class="chart-title">Purchase and Sales Orders</p>
+            <p class="chart-title">Properties All Over The World</p>
             <div id="area-chart"><Chart></Chart></div>
           </div>
 

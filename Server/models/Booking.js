@@ -7,7 +7,8 @@ import mongoose from "mongoose";
     email:{type:String ,required:true},
     Propertyname:{type:String ,required:true},
     image: { type: String, data: Buffer,required:true },
-    Propertydesc:{type:String }
+    Propertydesc:{type:String}
+    ,prize:{type:Number}
 }
  )
 

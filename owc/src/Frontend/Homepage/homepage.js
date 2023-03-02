@@ -44,16 +44,17 @@ function Homepage() {
      <Route path='/restaurant'component={Restaurant}/> 
      <Route path='/desk'component={Desk}/> 
      <Route path='/admin' component={Admin}/>
-     <Route path='/report' component={Report}/> 
+     
      <Route path='/props' component={Props}/>
      <Route path='/user' component={User}/>
      <Route path='/Architect' component={Archdash}/>
      <Route path='/allprops' component={Allprops}/>
      <Route path='/Forgotpass' component={Forgotpass}/>
-
+    
      <Route path='/book' component={Book}/>
-     
-
+     <Route path='/report' component={Report}/>
+          
+ 
      <Route path='/edituser' component={Edituser}/>
 
      </Switch>

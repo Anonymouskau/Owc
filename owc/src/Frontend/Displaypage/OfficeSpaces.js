@@ -29,7 +29,7 @@ export default function Properties() {
     return (
     <>
      &nbsp;
-     <h1 style={{"margin":"4%","fontFamily":"italic"}}> OFFICE SPACES</h1>
+     <h1 style={{"margin":"4%","fontFamily":"italic"}}> OFFICE SPACES...</h1>
      <hr style={{"color":"black"}}></hr>
        
         
@@ -46,10 +46,17 @@ export default function Properties() {
           <p className="card-text">{proper.Propertydesc}</p>
           { sessionStorage.getItem("email")!=null?
           <StripeCheckout   token={(token)=>{
-            
-            axios.post("http://localhost:5000/Payment/payment",{token,_id:proper._id})    
-            // axios.post("http://localhost:5000/Property/pdelete",{_id:proper._id}).then((res)=>{console.log(res);}).catch(err=>console.log(err))
-             
+                 
+             const email=sessionStorage.getItem("email")
+              axios.post("http://localhost:5000/Payment/payment",{Propertyname:proper.Propertyname,email:email,Propertydesc:proper.Propertydesc,image:proper.image,prize:proper.prize}).then(res=>{
+
+                    
+                     
+
+               // axios.post("http://localhost:5000/Property/pdelete",{_id:proper._id}).then((res)=>{console.log(res);}).catch(err=>console.log(err))
+                
+
+              }).catch(err=>console.log(err))    
             
           }} image={proper.image} stripeKey ="pk_test_51MgYdOSBUf0l8nGney6GJ3RMw1DYcGbx4Fd7HFhErh0kzxCL631N2GyOJyeV9hYbdeOnV7tKPUhZes1XO1KbXYY900m4NrwIGS" currency="INR" amount={proper.prize} name={proper.Propertyname}>
           <button     usehref={proper.prize*10} className="btn btn-primary">Book Now</button>

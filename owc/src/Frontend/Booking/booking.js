@@ -4,14 +4,56 @@ import React, { useEffect, useState } from 'react'
 export default function Book() {
   
   const role =  sessionStorage.getItem("role")
+   var arr=[] 
    const [books, setbooks]=useState([])
-   const bookingdata=async()=>{axios.get("http://localhost:5000/Payment/payment").then((res)=>{
+   const [valid,setvalid]=useState({
+   email:"",
+   Propertyname:"",
+   Propertydesc:"",
+   prize:"" 
+   })
+   const bookingdata=async()=>{
+    if(role=="Admin"){
+    axios.get("http://localhost:5000/Payment/payment").then((res)=>{
 
       setbooks(res.data)
-
+  
      }).catch(err=>{console.log(err)})
+    }
+    else{
+       axios.post("http://localhost:5000/Payment/booking",{email:sessionStorage.getItem("email")}).then(res=>{
+        //console.log("in else");
+          const result=Array.isArray(res.data)
+          if(result){
+             
+            setbooks(res.data)
+            
+            
+          }
+          else if(res.data!=null){
+                arr.push(res.data)
+
+                setbooks(arr)
+                    
+          }
+          
+        //   console.log(res.data);
+        //    console.log(arr);
+       }).catch(err=>{
+
+        console.log(err);
+       }) 
 
     }
+    }
+
+
+
+    
+  
+
+
+
    useEffect(()=>{
        bookingdata()
    },[])          
@@ -25,11 +67,15 @@ export default function Book() {
   <hr></hr>
     
     
-    {books.map((props)=>{
+    {
+    books.map((props)=>{
        
       return (
       
       <>
+      {
+        books==null?
+        <h3>No Bookings</h3>:
       <div class="card w-75" style={{"width": "18rem","margin":"4%"}}>
        <div class="card-body">
        <img  className="card-img-top" src={props.image} />
@@ -39,7 +85,9 @@ export default function Book() {
        </div>
        
      </div>
+    }
      &nbsp;
+      
      </>
       )
     })}
