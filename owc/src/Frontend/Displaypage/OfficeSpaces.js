@@ -15,12 +15,14 @@ export default function Properties() {
         console.log(token,e);
  }
   const  getproperties= async()=>{
-    await axios.get("http://localhost:5000/Property/Officespaces").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
+    await axios.get("http://65.1.2.147:5000/Property/Officespaces").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
   }
 
  useEffect(()=>{
   getproperties()
+
+
  },[])
   
  const lastindex=startindex*postperpage

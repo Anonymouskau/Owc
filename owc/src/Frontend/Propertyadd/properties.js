@@ -13,6 +13,7 @@
 
 //   image: req.body.image,
 
+import axios from 'axios'
 import React, { useState } from 'react'
 import '../Propertyadd/padd.css'
 export  default function Properties  ()  {
@@ -32,9 +33,8 @@ export  default function Properties  ()  {
     image:""
   })
   const handler=(e)=>{
-     const{name,...value}= e.target.value
-     console.log(name);
-     console.log(value);
+     const{name,value}= e.target.value
+     
     setstate({
       ...state,[name]:value
     })
@@ -74,12 +74,17 @@ export  default function Properties  ()  {
     <fieldset>
       <input onChange={handler} defaultValue={state.image} name='image' placeholder="Image link use Links from pexels" type="url" tabindex="4" required />
     </fieldset>
-      <textarea  defaultValue={state.Propertydesc} name="Propertydesc"placeholder="Property desc" tabindex="5" required></textarea>
+      <textarea  onChange={handler} defaultValue={state.Propertydesc} name="Propertydesc"placeholder="Property desc" tabindex="5" required></textarea>
     </fieldset>
     <fieldset>
       <button onClick={()=>{
 
+                   axios.post("http://localhost:5000/Property/property",state).then((res)=>{
+                          
+                       console.log(res);
+                    
 
+                   })
 
 
       }} name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
