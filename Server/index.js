@@ -25,6 +25,8 @@
 //=======
     app.use('/Reset',Forgotpass);
 
+    
+
 //>>>>>>> 1047f00ea7d1261d2ddd627539fe4cd0402ed687
     app.listen(5000,console.log("listeninig oon 5000"))
       

@@ -38,7 +38,7 @@ export default function Archdash() {
             
             <li class="sidebar-list-item">
               <Link to={"edituser"}>
-                <MdInventory2></MdInventory2> &nbsp; Edit Profile
+                <MdInventory2></MdInventory2> &nbsp; Change Setting
               </Link>
             </li>
 

@@ -1,16 +1,13 @@
 import React from "react";
-import { FaBeer } from 'react-icons/fa';
-import { BsFacebook , BsYoutube} from 'react-icons/bs';
-import { AiFillTwitterCircle} from 'react-icons/ai';
 
-export default function Contactus() {
+export default function Customize() {
   return (
     <div>
-      <div className="titlebox ">
+      <div className="">
         <div className="d-flex flex-column bd-highlight p-5">
-          <h2 className="text-center">Contact Us</h2>
+          <h2 className="text-center"></h2>
           <p className="text-center mb-5">
-            Center aligned text on all viewport sizes.
+           
           </p>
         </div>
       </div>
@@ -18,10 +15,10 @@ export default function Contactus() {
       <div className="getintouch ">
         <div className="container text-center w-70 mt-5">
           <div className="titleGetInTouch">
-            <h3>Get InTouch</h3>
-            <span>touch the sky with glory that our aim so touch with us</span>
+            <h3>Customize Spaces</h3>
+            
             <div><i className="material-icons p-3" style={{ fontSize: "48px", color: "grey" }}>mail</i></div>
-            <p>rsmore2231@gmail.com</p>
+            
           </div>
           <hr style={{ color: "red" }} />
 
@@ -41,19 +38,12 @@ export default function Contactus() {
                 <div class="form-floating">
                   <textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary m-4">Send Message</button>
+                <button type="submit" class="btn btn-primary m-4">Submit</button>
               </form>
             </div>
           </div>
 
-        <div className="logGetInTouch">
-          <h4>Follow Me</h4>
-          <div className="d-flex flex-row bd-highlight mb-3 justify-content-center">
-          <h1 className="p-3"><BsFacebook /></h1>
-          <h1 className="p-3"><BsYoutube /></h1>
-          <h1 className="p-3"><AiFillTwitterCircle /></h1>
-          </div>
-        </div>
+        
         </div >
       </div>
 
