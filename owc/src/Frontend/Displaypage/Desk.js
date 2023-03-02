@@ -15,7 +15,7 @@ export default function Properties() {
         console.log(token,e);
  }
   const  getproperties= async()=>{
-    await axios.get("http://localhost:5000/Property/desk").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
+    await axios.get("http://35.154.19.187:5000/Property/desk").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
   }
 
