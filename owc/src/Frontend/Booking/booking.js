@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import url from '../../config'
 
 export default function Book() {
   
@@ -14,14 +15,14 @@ export default function Book() {
    })
    const bookingdata=async()=>{
     if(role=="Admin"){
-    axios.get("http://localhost:5000/Payment/payment").then((res)=>{
+    axios.get(url.server+"/Payment/payment").then((res)=>{
 
       setbooks(res.data)
   
      }).catch(err=>{console.log(err)})
     }
     else{
-       axios.post("http://localhost:5000/Payment/booking",{email:sessionStorage.getItem("email")}).then(res=>{
+       axios.post(url.server+"/Payment/booking",{email:sessionStorage.getItem("email")}).then(res=>{
         //console.log("in else");
           const result=Array.isArray(res.data)
           if(result){

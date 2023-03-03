@@ -28,7 +28,12 @@ route.post("/props",async(req,res)=>{
 
 // Add property
 
-route.post("/property", async (req, res) => {
+route.post("/property",  async(req, res) => {
+
+
+  
+  console.log(req.body);
+ try{
   const Property1 = new Property({
     country: req.body.country,
     State: req.body.State,
@@ -44,7 +49,12 @@ route.post("/property", async (req, res) => {
 
     image: req.body.image,
   });
-  await Property1.save().then(()=>res.status(200).json("Saved")).catch(err=>res.status(500).json(err))
+ await  Property1.save().then(()=>res.status(200).json("Saved")).catch(err=>res.status(500).json(err))
+}catch{
+  err=>{
+    console.log(err);
+  }
+}
 });
 
 //Get All

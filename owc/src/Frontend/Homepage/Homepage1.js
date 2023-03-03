@@ -5,6 +5,7 @@ import {HiBuildingOffice2} from 'react-icons/hi2'
 import {GiOfficeChair} from 'react-icons/gi'
 import {IoRestaurantSharp} from 'react-icons/io5'
 import{ImBooks} from 'react-icons/im'
+import Testimonial from '../Testimonial/testimonial'
 export default function Homepage1() {
   return (
     <div>
@@ -53,7 +54,7 @@ export default function Homepage1() {
     </div>
 </div>
 
-
+<Testimonial/>
     
   </div> 
 </div>

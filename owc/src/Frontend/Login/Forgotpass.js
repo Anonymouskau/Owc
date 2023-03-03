@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import url from '../../config';
 
 
 export default function ForgotPassword() {
@@ -12,7 +13,7 @@ export default function ForgotPassword() {
        let jsondata={
             email:emailval
         }
-        axios.post("http://localhost:5000/Reset/Changepass",jsondata).then((res) => {
+        axios.post( url.server+"/Reset/Changepass",jsondata).then((res) => {
                     let value = res.data
                       if (value === "sucess") {
                         alert("😵‍💫😵‍💫 Email Send On Please check it")

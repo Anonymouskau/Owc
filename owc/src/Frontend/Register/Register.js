@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
+import url from "../../config";
 export default function Register() {
    const history =useHistory();
   const [user, SetUser] = useState({
@@ -23,7 +24,7 @@ export default function Register() {
 const registeration=()=>{
  const{name, email, password, repass,phoneno, role}=user
  if(name && email && password===repass && phoneno.length===10 || role){
-  axios.post("http://localhost:5000/User/user",user).then(()=>{alert(`Welcome ${user.name} to Owc ✌️✌️✌️` )
+  axios.post(url.server+"/User/user",user).then(()=>{alert(`Welcome ${user.name} to Owc ✌️✌️✌️` )
   history.push('/home')
  }).catch((err)=>console.log(err))
   }

@@ -5,6 +5,9 @@ import { Link, useHistory } from 'react-router-dom'
 import { Pagination } from '../Pagination/pagination'
 // import{ GoogleMap }from '@react-google-maps/api'
 import StripeCheckout  from 'react-stripe-checkout'
+
+import url  from '../../config'
+
 export default function Properties() {
  const history =useHistory()
   const[startindex,setstartindex]=useState(1);
@@ -15,7 +18,7 @@ export default function Properties() {
         console.log(token,e);
  }
   const  getproperties= async()=>{
-    await axios.get("http://65.1.2.147:5000/Property/Officespaces").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
+    await axios.get(url.server+"/Property/Officespaces").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
   }
 
@@ -50,7 +53,7 @@ export default function Properties() {
           <StripeCheckout   token={(token)=>{
                  
              const email=sessionStorage.getItem("email")
-              axios.post("http://localhost:5000/Payment/payment",{Propertyname:proper.Propertyname,email:email,Propertydesc:proper.Propertydesc,image:proper.image,prize:proper.prize}).then(res=>{
+              axios.post(url.server+"/Payment/payment",{Propertyname:proper.Propertyname,email:email,Propertydesc:proper.Propertydesc,image:proper.image,prize:proper.prize}).then(res=>{
 
                     
                      

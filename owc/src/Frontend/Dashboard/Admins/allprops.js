@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom'
 import { Pagination } from '../../Pagination/pagination'
+import url from '../../../config'
 
 // import{ GoogleMap }from '@react-google-maps/api'
 
@@ -12,7 +13,7 @@ export default function Allprops() {
   const[postperpage,setpostperpage]=useState(3);
  const [prop,setprop]=useState([])
   const  getproperties= async()=>{
-    await axios.get("http://localhost:5000/Property/property").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
+    await axios.get(url.server+"/Property/property").then((res)=>setprop(res.data)).catch((err)=>console.log(err))
              
   }
  useEffect(()=>{
@@ -44,7 +45,7 @@ export default function Allprops() {
           <br></br>
           <button  value={proper._id}onClick={(e)=>{
 
-            axios.post("http://localhost:5000/Property/pdelete",{ _id:e.target.value}).then((res)=>{let pr=prompt(" Are you sure you Want to delete?\n Enter your Email :")
+            axios.post(url.server+"/Property/pdelete",{ _id:e.target.value}).then((res)=>{let pr=prompt(" Are you sure you Want to delete?\n Enter your Email :")
             
             if(pr!=null){
                 window.location.reload(true)

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import url from '../../../config';
 
 export default function Admprop() {
  const history = useHistory()
@@ -96,7 +97,7 @@ const [email1,setemail]=useState({ email: ""
      if(pr.valueOf()===email.valueOf()){          
 
               console.log(email1);
-             axios.post("http://localhost:5000/User/udelete",{email:e.target.value}).then((res)=>{            
+             axios.post(url.server+"/User/udelete",{email:e.target.value}).then((res)=>{            
                  window.location.reload(true)
              
           }).catch((err)=>console.log(err))       

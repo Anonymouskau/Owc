@@ -5,6 +5,7 @@ import userStore from '../../Zustand/Zustandstore'
 import { data } from '../Dashboard/Admins/Googlecharts'
 import { BsFacebook , BsYoutube,BsApple} from 'react-icons/bs';
 import { AiFillTwitterCircle} from 'react-icons/ai';
+import url from '../../config'
 export default function Login() {
   const[vali,setvali]=useState(false)
   const history=useHistory()
@@ -83,7 +84,7 @@ export default function Login() {
           } }}><button  onClick={async()=>{
                    
                   var value
-                   await  axios.post("http://localhost:5000/User/Login",user).then((res)=>{
+                   await  axios.post(url.server+"/User/Login",user).then((res)=>{
                                       
                       value=res.data
                       const{email,...values}=value
