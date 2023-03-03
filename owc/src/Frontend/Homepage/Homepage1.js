@@ -21,9 +21,9 @@ export default function Homepage1() {
           </h1>
         </b>
       </div>
-      <div className="container overflow-hidden">
-        <div className="row gy-5">
-          <div className="col-6">
+      <div  style={{borderColor:'black'}}className="container overflow-hidden">
+        <div style={{borderColor:"black"}} className=" ">
+          <div  style={{borderColor:"black"}}className=" card col-6">
             <NavLink className="nav-link active" to="">
               {" "}
               <Link to={"Display"} style={{ color: "black" }}>
@@ -41,9 +41,12 @@ export default function Homepage1() {
               </Link>
             </NavLink>
           </div>
-
-          <div className="row gy-5">
-            <div className="col-6">
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          
+          <div style={{borderColor:"black"}} className=" ">
+          <div  style={{borderColor:"black"}}className=" card col-6">
               <NavLink className="nav-link active" to="">
                 {" "}
                 <Link to={"Desk"} style={{ color: "black" }}>
@@ -60,9 +63,12 @@ export default function Homepage1() {
               </NavLink>
             </div>
           </div>
-
-          <div className="row gy-5">
-            <div className="col-6">
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          
+          <div style={{borderColor:"black"}} className=" ">
+          <div  style={{borderColor:"black"}}className=" card col-6">
               <NavLink className="nav-link active" to="">
                 {" "}
                 <Link to={"Restaurant"} style={{ color: "black" }}>
@@ -78,10 +84,13 @@ export default function Homepage1() {
                 </Link>
               </NavLink>
             </div>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+          
           </div>
-
-          <div className="row gy-5">
-            <div className="col-6">
+          <div style={{borderColor:"black"}} className=" ">
+          <div  style={{borderColor:"black"}}className=" card col-6">
               <NavLink className="nav-link active" to="">
                 {" "}
                 <Link to={"Education"} style={{ color: "black" }}>

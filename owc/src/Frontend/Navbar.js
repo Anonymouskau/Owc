@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import '../App.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import userStore from "../Zustand/Zustandstore";
-
+import {RxAvatar} from 'react-icons/rx'
 export default function Navbar() {
   
   const[bstate,setbstate]=useState(false)
@@ -16,14 +16,14 @@ export default function Navbar() {
   const dropdown=()=>{
   return(
     <nav
-    className="navbar navbar-expand-lg navbar-light bg-light"
-      >
+    className="navbar navbar-expand-lg "
+      style={{backgroundColor:"snow"}}>
         <div className="navbar">
 
 
         
     <div className="container-fluid">
-      <label style={{"font-family": 'Source Serif Pro', 'fontSize':'2.5rem'}} className="navbar-brand">OwC</label>
+      <label style={{"font-family": 'Source Serif Pro', 'fontSize':'2.5rem',color:'white'}} className="navbar-brand">OwC</label>
       <button
         className="navbar-toggler"
         type="button"
@@ -120,13 +120,11 @@ export default function Navbar() {
       </div>
     </div>
 
-
-
-{/* <Link className="nav-link nav-link-ltr" href="#">Home</Link>
-<Link className="nav-link nav-link-ltr" href="#">About</Link>
-<Link className="nav-link nav-link-ltr" href="#">Contact</Link>
-<Link className="nav-link nav-link-ltr" href="#">Blog</Link> */}
-</div>
+    </div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
@@ -172,8 +170,8 @@ export default function Navbar() {
 
 
     <Dropdown  class='nav justify-content-end'style={{"align":"end"}}>
-      <Dropdown.Toggle variant="info" id="dropdown-basic-button">
-         👤 {state}
+      <Dropdown.Toggle variant="dark" color="white" id="dropdown-basic-button">
+        <RxAvatar></RxAvatar> {state}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
@@ -196,6 +194,13 @@ export default function Navbar() {
        
       </Dropdown.Menu>
     </Dropdown>
+
+
+{/* <Link className="nav-link nav-link-ltr" href="#">Home</Link>
+<Link className="nav-link nav-link-ltr" href="#">About</Link>
+<Link className="nav-link nav-link-ltr" href="#">Contact</Link>
+<Link className="nav-link nav-link-ltr" href="#">Blog</Link> */}
+
 </nav>
   )
   }
