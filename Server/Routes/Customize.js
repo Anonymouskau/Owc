@@ -11,12 +11,12 @@ let userdata;
 const route = Router();
 
 //FindbyEmail
-route.post("/customproperty", (req, res) => {
-  console.log(req.body.email);
+route.post("/custom", (req, res) => {
+  console.log(req.body);
   const { email } = req.body;
   const { subject } =req.body;
   const { name } =req.body;
-  const { text } =req.body;
+  const { desc } =req.body;
   User.findOne({ email: email }, (err, user) => {
     if (user) {
       userdata = user;
@@ -34,9 +34,9 @@ route.post("/customproperty", (req, res) => {
       let mailOptions = null;
       mailOptions = {
         from: "rsmore2232@gmail.com", // sender address
-        to: to_mail, // list of receivers
-        subject: "", // Subject line
-        html: contents, // plain text body
+        to: email, // list of receivers
+        subject:"This is response Generated for Customization" , // Subject line
+        html:subject +desc, // plain text body
       };
 
       const result = {
@@ -58,5 +58,5 @@ route.post("/customproperty", (req, res) => {
   });
 });
 
-module.exports(route)
+export default (route)
 

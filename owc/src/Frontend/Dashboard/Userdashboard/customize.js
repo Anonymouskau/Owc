@@ -69,7 +69,7 @@ export default function Customize() {
           <div className="formGetInTouch">
             <div className="container mt-3 text-start">
               <h3 className="mt-4">Send Me a Message</h3>
-              <form className="p-4">
+              <div className="p-4">
                 <div className="mb-3">
                   <input
                    name="name"
@@ -115,7 +115,7 @@ export default function Customize() {
                 </div>
                 <button onClick={()=>{
 
-                    axios.post( url.server+"/Custom/customproperty",state).then((res) => {
+                    axios.post( url.server+"/Custom/custom",state).then((res) => {
                              
                       alert("Your Response is Submitted We will get back to you")
                  
@@ -125,7 +125,7 @@ export default function Customize() {
                 }} class="btn btn-primary m-4">
                   Submit
                 </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>

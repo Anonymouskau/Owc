@@ -1,4 +1,4 @@
 const url={
-    server:"http://localhost:5000"
+    server:"http://43.205.119.196:5000"
 }
 export default url
