@@ -56,6 +56,31 @@ export default function userdash() {
               <AiFillDashboard></AiFillDashboard> &nbsp;DASHBOARD
             </p>
           </div>
+
+        
+          <div class="main-cards">
+
+          <div class="card">
+            <div class="sidebar-list-item">
+              <p class="text-primary"></p>
+              
+              <span class="material-icons-outlined text-blue">
+              <Link className="nav-link-active" to={"/Customize"} >
+             <b>CUSTOMIZE PROPERTIES</b>
+            </Link>
+              </span>
+            </div>
+            <span class="text-primary font-weight-bold"></span>
+          </div>
+
+         
+
+          
+
+          
+
+        </div>
+
         </main>
         {/* <!-- End Main --> */}
       </div>
