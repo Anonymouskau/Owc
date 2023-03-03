@@ -95,12 +95,20 @@ route.post("/udelete",(req,res)=>{
 })
 
 //edit user 
-route.put('/edituser',(req,res)=>{
+route.post('/edituser',(req,res)=>{
+   console.log("in edit user");
    User.findOneAndUpdate(
      { email:req.body.email},
-     {$set:{name:req.body.name,phoneno:req.body.phoneno,role:req.body.role}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
+     {$set:{name:req.body.name,phoneno:req.body.phoneno}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
 })
 
+
+// //edit user for admin 
+// route.put('/edituser',(req,res)=>{
+//    User.findOneAndUpdate(
+//      { email:req.body.email},
+//      {$set:{name:req.body.name,phoneno:req.body.phoneno,rol}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
+// })
 
 //add custom iamges
 
