@@ -11,12 +11,13 @@ import { AiFillDashboard,AiFillSetting } from 'react-icons/ai'
 import { FcBookmark } from 'react-icons/fc'
 import {TbReportSearch} from 'react-icons/tb'
 import { useHistory } from 'react-router-dom'
+import url from '../../../config'
 export default function Admin() {
 const history=useHistory()
  const [regest,setregs]=useState(0)
  const email= sessionStorage.getItem("email");
  useEffect(()=>{
-   axios.get("http://localhost:5000/Property/count").then((res)=>{
+   axios.get(  url.server +"/Property/count").then((res)=>{
     setregs(res.data)
    })
  },[])

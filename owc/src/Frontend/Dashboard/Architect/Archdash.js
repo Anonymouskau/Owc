@@ -38,7 +38,7 @@ export default function Archdash() {
             
             <li class="sidebar-list-item">
               <Link to={"edituser"}>
-                <MdInventory2></MdInventory2> &nbsp; Change Setting
+                <AiFillSetting></AiFillSetting> &nbsp;  Settings
               </Link>
             </li>
 
@@ -56,7 +56,7 @@ export default function Archdash() {
 
             <li class="sidebar-list-item">
             <Link to={"/add"} >
-             <>+</> &nbsp;Add Properties
+             <>+</> &nbsp;Add Catalogs
             </Link>
           </li>
 

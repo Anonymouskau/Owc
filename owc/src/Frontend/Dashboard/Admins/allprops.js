@@ -67,7 +67,7 @@ export default function Allprops() {
           &nbsp;
           &nbsp;  &nbsp;  &nbsp;
           &nbsp;  &nbsp;  &nbsp;
-          <Link  to ={"Cart"}usehref={proper.prize} className="btn btn-outline-success">Add</Link>
+        
         </div>
         
       </div></tr>

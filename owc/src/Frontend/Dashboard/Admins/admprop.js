@@ -82,12 +82,8 @@ const [email1,setemail]=useState({ email: ""
       </td>
       <td><p class="text-muted mb-0">{props.phoneno}</p></td>
       <td>
-        <button onClick={()=>{
-           history.push("/update")          
-        }} type="button" class="btn btn-outline-warning">
-          Edit
-        </button>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        
+        
         <button  name="email"value={props.email} onClick={(e)=>{
               
                 

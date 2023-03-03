@@ -39,7 +39,7 @@ export default function userdash() {
             
             <li class="sidebar-list-item">
               <Link to={"edituser"}>
-                <MdInventory2></MdInventory2> &nbsp; Edit Profile
+                <AiFillSetting></AiFillSetting> &nbsp;  Settings
               </Link>
             </li>
             <li class="sidebar-list-item">

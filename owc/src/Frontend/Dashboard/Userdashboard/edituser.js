@@ -23,45 +23,47 @@ export  default function Edituser  ()  {
      const{name, value}=e.target
      
      setstate({
-      ...state,[name]:value
+      ...state,[name]:value,email:sessionStorage.getItem("email")
      })
+     
 
     }
 
   return (
     <>
     &nbsp;
-    <div class='container1'>
-    <div class="container1">  
-  <form id="contact" >
-    <h3>Use</h3>
+    <div class='container1'style={{ backgroundColor:(255, 255, 255, .15),backdropFilter:"blur(5px)"}}>
+    <div class="container1" style={{ backgroundColor:(255, 255, 255, .15),backdropFilter:"blur(5px)"}}>  
+  <div id="contact" >
+    <h3>Change Settings</h3>
     
     <fieldset>
-      <input name='name' onChange={handler} value={state.name}placeholder= {name} type="text" tabindex="1" />
+      <input name='name' onChange={handler} value={state.name}placeholder= {name} type="text"  />
     </fieldset>
     <fieldset>
-      <input name='email'   value={email}placeholder= {email} type="email" tabindex="2" readOnly />
+      <input name='email' value={email}placeholder= {email} type="email" tabindex="2" readOnly />
     </fieldset>
 
     <fieldset>
-      <input  name='phoneno' onChange={handler} state={state.phoneno}placeholder={phoneno} type="tel" tabindex="3"  />
+      <input  name='phoneno' onChange={handler} state={state.phoneno}placeholder={phoneno} type="tel" />
     </fieldset>
     
     
     <fieldset>
       <button  onClick={()=>{
         axios.post(url.server+'/User/edituser',state).then(res=>{
-                        alert('Please Login and checkupdated Status 🙂')
-          
+               alert("Please Relogin to See changes  🙂🙂🙂🙂" )
+               history.push("user")             
+        
         }).catch(err=>{console.log(err)})
          
 
 
 
-      }}name="submit" class="btn-primary-rounded"  >Submit</button>
+      }} class="btn  btn-primary"  >Im Ready for It ! </button>
     </fieldset>
     
-  </form>
+  </div>
 </div>
     
    &nbsp;

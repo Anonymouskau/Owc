@@ -96,12 +96,20 @@ route.post("/udelete",(req,res)=>{
 
 //edit user 
 route.post('/edituser',(req,res)=>{
-   console.log("in edit user");
+   console.log(req.body);   
    User.findOneAndUpdate(
      { email:req.body.email},
      {$set:{name:req.body.name,phoneno:req.body.phoneno}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
 })
 
+
+
+//count documents
+route.get("/count",(req,res)=>{
+   User.countDocuments({ _id: { "$exists": true } }).then((value)=>res.send(res.json(value)))
+   .catch(()=>{res.status(500)})
+ })
+ 
 
 // //edit user for admin 
 // route.put('/edituser',(req,res)=>{
