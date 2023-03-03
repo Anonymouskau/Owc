@@ -25,6 +25,8 @@
 //=======
     app.use('/Reset',Forgotpass);
 
+    /* app.use('/customproperty',Customize); */
+
     
 
 //>>>>>>> 1047f00ea7d1261d2ddd627539fe4cd0402ed687
