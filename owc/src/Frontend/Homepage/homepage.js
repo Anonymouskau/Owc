@@ -23,7 +23,7 @@ import Book from '../Booking/booking';
 //=======
 import  Properties  from '../Propertyadd/properties';
 import Edituser from '../Dashboard/Userdashboard/edituser';
-import Customize from '../Displaypage/customize';
+import Customize from '../Dashboard/Userdashboard/customize';
 //>>>>>>> f38cc243e85f8945dc3d87737a45b54f02ed9f19
 function Homepage() {
   return (

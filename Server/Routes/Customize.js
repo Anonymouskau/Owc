@@ -58,4 +58,5 @@ route.post("/customproperty", (req, res) => {
   });
 });
 
+module.exports(route)
 

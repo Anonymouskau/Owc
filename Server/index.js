@@ -8,6 +8,7 @@
     import payment  from "./Routes/stripe.js"
 //=======
     import Forgotpass from "./Routes/Forgotpass.js";
+    import Custom from  './Routes/Customize.js'
 //>>>>>>> 1047f00ea7d1261d2ddd627539fe4cd0402ed687
     
     mongoose.connect("mongodb+srv://Owc:1234@owc.asxhomx.mongodb.net/?retryWrites=true&w=majority").then(()=>{console.log("connected")}).catch(e=>{console.log(e)})
@@ -25,9 +26,7 @@
 //=======
     app.use('/Reset',Forgotpass);
 
-    /* app.use('/customproperty',Customize); */
-
-    
+    app.use("/Custom", Custom)
 
 //>>>>>>> 1047f00ea7d1261d2ddd627539fe4cd0402ed687
     app.listen(5000,console.log("listeninig oon 5000"))

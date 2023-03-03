@@ -1,32 +1,46 @@
 import axios from "axios";
 import React, { useState } from "react";
+import url from "../../../config";
 
 export default function Customize() {
 
   
-  const [emailval,setEmailval]=useState("");
-  let resethandler =()=>{
-      setEmailval("");
+  const [state,setstate]=useState({
+    email:"",
+    name:"",
+    subject:"",
+    desc:""
+  });
+  let handler =(e)=>{
+    const{name, value}=e.target    
+        
 
-      console.log((emailval));
-     
-      let jsondata={
-          email:emailval
-      }
-      axios.post("http://localhost:5000/customproperty/customproperty",jsondata).then((res) => {
-                  let value = res.data
-                    if (value === "sucess") {
-                      alert("😵‍💫😵‍💫 Email Send On Please check it")
-                    }
-                    else {
-                      alert("😵‍💫😵‍💫 Invalid Credentials")
-                    }
-                  }).catch(err =>{alert("😵‍💫😵‍💫 Invalid chatch Credentials")
-                          // console.log(err);
-                      }
-                   )
-                 
+    setstate({
+   
+      ...state,[name]:value
+
+
+    })
+
+
   }
+  //     let jsondata={
+  //         email:emailval
+  //     }
+  //  
+  //                 let value = res.data
+  //                   if (value === "sucess") {
+  //                     alert("😵‍💫😵‍💫 Email Send On Please check it")
+  //                   }
+  //                   else {
+  //                     alert("😵‍💫😵‍💫 Invalid Credentials")
+  //                   }
+  //                 }).catch(err =>{alert("😵‍💫😵‍💫 Invalid chatch Credentials")
+  //                         // console.log(err);
+  //                     }
+  //                  )
+                 
+  // }
   return (
     <div>
       <div className="">
@@ -58,37 +72,57 @@ export default function Customize() {
               <form className="p-4">
                 <div className="mb-3">
                   <input
+                   name="name"
+                    value={state.name}
                     type="text"
                     class="form-control"
                     id="exampleInputPassword1"
                     placeholder="name"
-                    onChange={(e) => {}}
+                    onChange={handler}
                   />
                 </div>
                 <div className="mb-3">
                   <input
+                   name="email"
+                    value={state.email}
                     type="email"
                     class="form-control"
                     id="exampleInputEmail1"
                     placeholder="email"
+                    onChange={handler}
                   />
                 </div>
                 <div className="mb-3">
                   <input
+                   name="subject"
+                    value={state.subject}
                     type="text"
                     class="form-control"
                     id="exampleInputPassword1"
                     placeholder="subject"
-                  />
+                 onChange={handler} />
                 </div>
                 <div class="form-floating">
-                  <textarea
+                  <input
+                   name="desc" 
+                   type="textarea"
+
                     class="form-control"
+                    
                     placeholder="Leave a message here"
                     id="floatingTextarea"
-                  ></textarea>
+                onChange={handler}   ></input>
                 </div>
-                <button type="submit" class="btn btn-primary m-4">
+                <button onClick={()=>{
+
+                    axios.post( url.server+"/Custom/customproperty",state).then((res) => {
+                             
+                      alert("Your Response is Submitted We will get back to you")
+                 
+
+                    })
+
+                }} class="btn btn-primary m-4">
                   Submit
                 </button>
               </form>
