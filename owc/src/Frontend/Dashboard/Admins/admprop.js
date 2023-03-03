@@ -11,7 +11,7 @@ const [email1,setemail]=useState({ email: ""
  
  const tbles=(async()=>{
      
-  await axios.get("http://localhost:5000/User/user").then((res)=>{
+  await axios.get(url.server+"/User/user").then((res)=>{
        
            setuser(res.data)
 
