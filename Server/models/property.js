@@ -9,7 +9,11 @@ const Property = new Schema({
   Status: { type: String, required: true },
   Propertydesc: { type: String, required: true },
   propertytype: { type: String, required: true },
-  subtype: { type: String, required: true },
+  subtype: { 
+    type: String, 
+    required: true 
+  },
+  
   prize: {
     type: Number,
     required: true,
