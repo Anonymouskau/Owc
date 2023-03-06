@@ -8,8 +8,12 @@ import mongoose, { Schema } from "mongoose";
     phoneno:{type:Number,required:true},
     role:{type:String, required:true }  ,
     images:  {type:String, default:""}
+    ,orders:{
+        type:Boolean,
+        default:false
 
-
+    }
+   
 
 
 }

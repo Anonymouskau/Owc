@@ -127,4 +127,10 @@ route.get("/count",(req,res)=>{
 })
  
 
+route.post('/orders',(req,res)=>{
+   User.findOneAndUpdate(
+     { email:req.body.email},
+     {$set:{orders:req.body.orders}},{new:true}).then(()=>res.send("sucess")).catch(err=>console.log(err))
+})
+ 
  export default(route)
